@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio and resume of Pince Croco — technical content creator, quantitative finance strategist, graphic designer and community manager.">
+  <title>pince portfolio</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #111;
+      --mid: #555;
+      --light: #999;
+      --rule: #ddd;
+      --bg: #faf9f7;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--black);
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 15px;
+      line-height: normal;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 64px 32px 96px;
+    }
+
+    /* ── HEADER ── */
+    header {
+      border-bottom: 2px solid var(--black);
+      padding-bottom: 20px;
+      margin-bottom: 8px;
+    }
+
+    header h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .tagline {
+      font-style: italic;
+      color: var(--mid);
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+
+    .contact {
+      font-size: 0.88rem;
+      color: var(--mid);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 0;
+    }
+
+    .contact a {
+      color: var(--mid);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .contact a:hover {
+      color: var(--black);
+      border-bottom-color: var(--black);
+    }
+
+    .contact span {
+      margin: 0 8px;
+      color: var(--rule);
+    }
+
+    .contact .location-highlight {
+      display: inline-block;
+      margin: 0;
+      padding: 1px 4px 2px;
+      color: var(--mid);
+      background: rgb(243 225 235 / 75%);
+    }
+
+    /* ── SECTION ── */
+    section {
+      margin-top: 36px;
+    }
+
+    section h2 {
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--light);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 4px;
+      margin-bottom: 20px;
+    }
+
+    /* ── PROFILE ── */
+  .profile-text {
+      font-size: 0.97rem;
+      color: var(--mid);
+      max-width: 640px;
+      line-height: 1.75;
+  }
+
+.project-title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.project-title-text {
+  flex: 1 1 0;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.project-title-row a,
+.project-title-link {
+  color: var(--black);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+.project-title-row a:hover {
+  border-bottom-color: var(--black);
+}
+
+.project-toggle {
+  width: auto;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.project-toggle-icon {
+  display: inline-block;
+  margin-right: 8px;
+  color: var(--light);
+  font-size: 0.9rem;
+  transform: translateY(-1px);
+}
+
+.project-toggle-content.is-collapsed {
+  display: none;
+}
+
+.project-subtag {
+  display: inline-block;
+  margin: 10px 0 8px;
+  padding: 5px 14px;
+  border: 1px solid var(--rule);
+  color: var(--mid);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: transparent;
+}
+
+.project-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0 12px;
+}
+
+.tab-btn {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mid);
+  border: 1px solid var(--rule);
+  padding: 4px 10px;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.tab-btn:hover {
+  border-color: var(--black);
+  color: var(--black);
+}
+
+.tab-btn.is-active {
+  border-color: var(--black);
+  color: var(--black);
+}
+
+/* Panels */
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.is-active {
+  display: block;
+}
+
+/* ── SELECTED PROJECTS / COMPACT CAROUSEL ── */
+.project-carousel {
+  margin-top: 16px;
+}
+
+.carousel-shell {
+  position: relative;
+  overflow: hidden;
+  padding: 0 36px;
+  background: transparent;
+}
+
+.carousel-track {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x pan-y;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-slide {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+}
+
+.auto-carousel .carousel-track {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+
+.auto-carousel .carousel-shell {
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+.auto-carousel .carousel-slide {
+  scroll-snap-align: none;
+}
+
+.auto-carousel .carousel-slide img {
+  height: 230px;
+  max-width: 480px;
+}
+
+.featured-creations .auto-carousel {
+  position: relative;
+  left: 50%;
+  width: min(calc(100% + 96px), calc(100vw - 24px));
+  transform: translateX(-50%);
+}
+
+.zodial-mini-section {
+  position: relative;
+}
+
+.zodial-mini-row {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+}
+
+.zodial-mini-visual {
+  position: relative;
+}
+
+.zodial-mini-preview {
+  display: block;
+  border: 1px solid var(--rule);
+  background: #fff;
+  overflow: hidden;
+}
+
+.zodial-mini-preview:hover {
+  border-color: var(--black);
+}
+
+.zodial-mini-preview img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 7 / 5;
+  object-fit: cover;
+}
+
+.zodial-mini-copy {
+  color: var(--mid);
+  font-size: 0.88rem;
+  line-height: 1.4;
+  padding-right: 18px;
+}
+
+.zodial-mini-copy strong {
+  color: var(--black);
+  font-weight: 700;
+}
+
+.zodial-mini-social {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 12px;
+  height: 12px;
+  color: var(--light);
+  line-height: 0;
+}
+
+.zodial-mini-social:hover {
+  color: var(--black);
+}
+
+.zodial-mini-social svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.zodial-click-note {
+  position: absolute;
+  left: -38px;
+  bottom: -28px;
+  width: 54px;
+  color: var(--mid);
+  pointer-events: none;
+  transform: rotate(-3deg);
+  transform-origin: center;
+  animation: zodial-note-clack 1.2s steps(1, end) infinite;
+  z-index: 1;
+}
+
+@keyframes zodial-note-clack {
+  0%, 49% { transform: translateX(-2px) rotate(-3deg); }
+  50%, 100% { transform: translateX(2px) rotate(1deg); }
+}
+
+.zodial-click-note svg {
+  display: block;
+  width: 46px;
+  height: 23px;
+  margin-left: 8px;
+  overflow: visible;
+}
+
+.zodial-click-note path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.35;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.zodial-click-note span {
+  display: inline-block;
+  margin-top: 1px;
+  padding: 0 3px 1px;
+  background: rgb(243 225 235 / 75%);
+  font-size: 0.66rem;
+  font-style: italic;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.carousel-slide img {
+  width: auto;
+  height: 200px;
+  max-width: 420px;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  cursor: zoom-in;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.carousel-shell::before,
+.carousel-shell::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 44px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel-shell::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg), rgba(250, 249, 247, 0));
+}
+
+.carousel-shell::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg), rgba(250, 249, 247, 0));
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  gap: 12px;
+}
+
+.carousel-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.carousel-btn {
+  background: transparent;
+  border: 1px solid var(--rule);
+  color: var(--mid);
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+.carousel-btn:hover {
+  border-color: var(--black);
+  color: var(--black);
+}
+
+.carousel-counter {
+  font-size: 0.82rem;
+  color: var(--light);
+  font-style: italic;
+  white-space: nowrap;
+}
+
+/* ── TWEET PREVIEWS ── */
+
+    .tweet-carousel {
+  margin-top: 14px;
+}
+
+.tweet-slide {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: stretch;
+  scroll-snap-align: start;
+}
+
+.tweet-slide .tweet-card {
+  width: 320px;
+}
+
+.tweet-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--rule);
+  background: #fff;
+  overflow: hidden;
+}
+
+.tweet-card:hover {
+  border-color: var(--black);
+}
+
+.tweet-card img {
+  width: 100%;
+  height: 180px;
+  display: block;
+  object-fit: cover;
+  background: #f2f0ec;
+}
+
+.tweet-card-body {
+  padding: 10px 12px;
+  min-height: 120px;
+}
+
+.tweet-card-label {
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--light);
+  margin-bottom: 6px;
+}
+
+.tweet-card-title {
+  font-size: 0.9rem;
+  color: var(--black);
+  line-height: 1.4;
+}
+
+/* ── LIGHTBOX ── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 17, 17, 0.88);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  z-index: 999;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox-inner {
+  position: relative;
+  max-width: 1100px;
+  width: 100%;
+}
+
+.lightbox img {
+  width: 100%;
+  max-height: 86vh;
+  object-fit: contain;
+  display: block;
+  background: #111;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -38px;
+  right: 0;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+    /* ── EXPERIENCE ── */
+    .job {
+      margin-bottom: 28px;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: nowrap;
+    }
+
+    .job-title {
+      font-weight: 700;
+      font-size: 1rem;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .job-title a {
+      color: var(--black);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .job-title a:hover {
+      border-bottom-color: var(--black);
+    }
+
+    .job-meta {
+      font-size: 0.82rem;
+      color: var(--light);
+      font-style: italic;
+      white-space: nowrap;
+      flex: 0 0 auto;
+      margin-left: auto;
+    }
+
+    .job-description {
+      font-size: 0.87rem;
+      font-style: italic;
+      color: var(--mid);
+      margin: 2px 0 8px;
+    }
+
+    .job ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .job ul li {
+      font-size: 0.92rem;
+      padding: 2px 0 2px 16px;
+      position: relative;
+      color: #333;
+    }
+
+    .job ul li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--light);
+    }
+
+    .pink-highlight-link {
+      color: inherit;
+      padding: 0 2px;
+      background: rgb(243 225 235 / 75%);
+      text-decoration-color: currentColor;
+    }
+
+    .pink-highlight-link:hover {
+      background: #f3e1eb;
+    }
+
+    /* ── PRESS ROW ── */
+    .press-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 0;
+    }
+
+    .press-links a {
+      font-size: 0.9rem;
+      color: var(--black);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      margin-right: 20px;
+      white-space: nowrap;
+    }
+
+    .press-links a:hover {
+      border-bottom-color: var(--black);
+    }
+
+    /* ── SPEAKING INLINE ── */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      font-size: 0.82rem;
+      color: var(--mid);
+      border: 1px solid var(--rule);
+      padding: 3px 10px;
+    }
+
+    /* ── SKILLS ── */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .skills-list span {
+      font-size: 0.85rem;
+      color: var(--mid);
+      border-bottom: 1px dotted var(--rule);
+      padding-bottom: 1px;
+      margin-right: 4px;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-item {
+      margin-bottom: 14px;
+    }
+
+    .edu-item strong {
+      font-size: 0.95rem;
+      display: block;
+    }
+
+    .edu-item .edu-meta {
+      font-size: 0.82rem;
+      color: var(--mid);
+      font-style: italic;
+    }
+
+    .edu-item .edu-note {
+      font-size: 0.85rem;
+      color: var(--mid);
+      margin-top: 2px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      margin-top: 60px;
+      border-top: 1px solid var(--rule);
+      padding-top: 14px;
+      font-size: 0.78rem;
+      color: var(--light);
+      font-style: italic;
+    }
+
+    .footer-wink {
+      position: absolute;
+      right: 0;
+      bottom: -64px;
+      width: 88px;
+      height: 30px;
+      color: var(--mid);
+    }
+
+    .footer-wink svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .footer-wink-open,
+    .footer-wink-closed {
+      transition: none;
+    }
+
+    .footer-wink-closed {
+      opacity: 0;
+    }
+
+    .footer-wink.is-winking .footer-wink-open {
+      animation: footer-face-open 0.85s ease-in-out 1;
+    }
+
+    .footer-wink.is-winking .footer-wink-closed {
+      animation: footer-face-wink 0.85s ease-in-out 1;
+    }
+
+    @keyframes footer-face-open {
+      0%, 22%, 72%, 100% { opacity: 1; }
+      34%, 60% { opacity: 0; }
+    }
+
+    @keyframes footer-face-wink {
+      0%, 22%, 72%, 100% { opacity: 0; }
+      34%, 60% { opacity: 1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .footer-wink.is-winking .footer-wink-open,
+      .footer-wink.is-winking .footer-wink-closed { animation: none; }
+      .zodial-click-note { animation: none; }
+    }
+
+    @media (max-width: 560px) {
+      body { padding: 36px 20px 60px; }
+      header h1 { font-size: 2rem; }
+      .job-header { flex-direction: column; }
+      .job-meta { margin-top: 0; }
+      .zodial-mini-row { grid-template-columns: 110px minmax(0, 1fr); gap: 12px; }
+      .zodial-click-note { left: -18px; bottom: -27px; }
+      .footer-wink { bottom: -36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>pince croco</h1>
+    <p class="tagline">Growth Marketing · Technical Content Creator · DeFi Strategist · Graphic Designer · Community/Event Manager</p>
+    <div class="contact">
+      <a href="https://journalducoin.com/author/nafyn/" target="_blank" rel="noopener noreferrer">journalducoin.com</a>
+      <span>·</span>
+      <a href="https://x.com/pince_croco" target="_blank" rel="noopener noreferrer">@pince_croco</a> (1.2K)
+      <span>·</span>
+      <a href="https://x.com/nafyn_" target="_blank" rel="noopener noreferrer">@nafyn_</a> (2K)
+      <span>·</span>
+      available for consulting, part-time &amp; full-time
+      <span>·</span>
+      <span class="location-highlight">currently in KL ૮ ྀིᴗ͈ . ᴗ͈ ྀིა</span>
+    </div>
+  </header>
+
+  <!-- PROFILE -->
+  <section>
+    <h2>Profile</h2>
+    <p class="profile-text">
+    i enjoy sharing interesting discoveries through a casual, fun but technical scope to explain complex topics to broader audiences. DeFi has been my playground since 2021, and i love to assist with growth strategies, community development, and event organization through content production!
+    part of my work also involves analytical research &amp; strategy which support decision-making and communication strategies for the projects i collaborate with.
+    </p>
+  </section>
+
+  <!-- MONADVENTURE HUNT — FEATURED AUTO CAROUSEL -->
+  <section class="featured-creations">
+    <h2>QUICK OVERVIEW</h2>
+
+    <div class="project-carousel auto-carousel" data-carousel data-auto-carousel>
+      <div class="carousel-shell">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="posters/papayou.png" alt="Monad event visual 1" loading="lazy" decoding="async"></div>
+          <div class="carousel-slide"><img src="posters/laquita.png" alt="Monad event visual 2" loading="lazy" decoding="async"></div>
+          <div class="carousel-slide"><img src="posters/cookie.png" alt="Monad event visual 3" loading="lazy" decoding="async"></div>
+          <div class="carousel-slide"><img src="posters/frico.png" alt="Monad event visual 4" loading="lazy" decoding="async"></div>
+          <div class="carousel-slide"><img src="posters/midodo.png" alt="Monad event visual 5" loading="lazy" decoding="async"></div>
+          <div class="carousel-slide"><img src="posters/ghooolyache.png" alt="Monad event visual 6" loading="lazy" decoding="async"></div>
+          <div class="carousel-slide"><img src="posters/lambe.png" alt="Monad event visual 7" loading="lazy" decoding="async"></div>
+          <div class="carousel-slide"><img src="posters/flowmyc-baeye.jpg" alt="Monad event visual 8" loading="lazy" decoding="async"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELECTED PROJECTS -->
+<section>
+  <h2>Selected Projects</h2>
+
+<!-- MODIF EN COURS -->
+<div class="job">
+  <div class="job-header">
+    <div class="job-title project-title-row">
+      <button class="project-toggle" type="button" aria-expanded="false" aria-controls="project-quantitative-content" aria-label="Toggle Quantitative Strategist projects">
+        <span class="project-toggle-icon" aria-hidden="true">▶</span>
+      </button>
+      <span class="project-title-text">
+        Quantitative Strategist — for <span class="project-title-link"> Neverland</span>
+        covering <span class="project-title-link"> Monad</span>, <span class="project-title-link"> Folks</span>, <span class="project-title-link"> Berachain</span> and <span class="project-title-link"> Polymarket</span>
+      </span>
+    </div>
+    <div class="job-meta">Apr 2025 - Present</div>
+  </div>
+
+  <div class="project-toggle-content is-collapsed" id="project-quantitative-content">
+
+    <!-- TABS -->
+    <div class="project-tabs">
+      <button type="button" class="tab-btn is-active" data-tab="maths">maths, ROI, loops &amp; pts</button>
+      <button type="button" class="tab-btn" data-tab="lending">lending related</button>
+      <button type="button" class="tab-btn" data-tab="defi">defi strategies</button>
+      <button type="button" class="tab-btn" data-tab="eco">eco cheatsheets</button>
+      <button type="button" class="tab-btn" data-tab="polymarket">polymarket challenge</button>
+      <button type="button" class="tab-btn" data-tab="yield">monad weekly yield</button>
+    </div>
+
+     <!-- MATHS -->
+    <div class="tab-panel is-active" data-panel="maths">
+      <p class="job-description">ROI, loops &amp; modeling</p>
+
+      <div class="tweet-carousel" data-carousel>
+        <div class="carousel-shell">
+          <div class="carousel-track">
+
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2011087480687411581?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/maths-5fig-monad.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">maths, ROI, loops &amp; pts</div><div class="tweet-card-title">what a low 5fig stable pf can achieve on monad DeFi</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1996876618330263641?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/maths-25-stablestack.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">maths, ROI, loops &amp; pts</div><div class="tweet-card-title">25% on your stable stack?</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1991194382083523011?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/maths-neverland-modeling.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">maths, ROI, loops &amp; pts</div><div class="tweet-card-title">modeling MON/DUST price scenarios &amp; strategy outcomes before any real exposure</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2004362469087773083?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/maths-neverland-postmodeling.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">maths, ROI, loops &amp; pts</div><div class="tweet-card-title">post modeling</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1997169733754671140?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/maths-ROI-explanation.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">maths, ROI, loops &amp; pts</div><div class="tweet-card-title">ROI explanation</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1998677936883507286?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/maths-folks-cheatcode.png" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">maths, ROI, loops &amp; pts</div><div class="tweet-card-title">folks cheatcode</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1999006220263493974?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/maths-folks-test.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">maths, ROI, loops &amp; pts</div><div class="tweet-card-title">folks test</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1999430901420425458?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/maths-ROI1d-flex.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">maths, ROI, loops &amp; pts</div><div class="tweet-card-title">ROI 1d flex</div></div></a></div>
+
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <div class="carousel-nav">
+            <button class="carousel-btn prev" type="button">Prev</button>
+            <button class="carousel-btn next" type="button">Next</button>
+          </div>
+          <div class="carousel-counter">1 / 8</div>
+        </div>
+      </div>
+    </div>
+
+        <!-- LENDING -->
+    <div class="tab-panel" data-panel="lending">
+      <p class="job-description">lending insights</p>
+
+      <div class="tweet-carousel" data-carousel>
+        <div class="carousel-shell">
+          <div class="carousel-track">
+
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2005887140824248424?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/lending-checklist.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">lending related</div><div class="tweet-card-title">lending checklist</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1993966643291328706?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/lending-maximizing.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">lending related</div><div class="tweet-card-title">7 birds 2 stones: maximizing lending on monad</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2036008620396302439?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/lending-layermatrix.png" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">lending related</div><div class="tweet-card-title">will it be ev+? my 4-layer matrix to assess any project's future</div></div></a></div>
+
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <div class="carousel-nav">
+            <button class="carousel-btn prev" type="button">Prev</button>
+            <button class="carousel-btn next" type="button">Next</button>
+          </div>
+          <div class="carousel-counter">1 / 3</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEFI STRATS -->
+    <div class="tab-panel" data-panel="defi">
+      <p class="job-description">diluting myself for 0 elon bucks</p>
+
+      <div class="tweet-carousel" data-carousel>
+        <div class="carousel-shell">
+          <div class="carousel-track">
+
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2051348542741213219?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/defi-may26.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">defi strategies</div><div class="tweet-card-title">may26—current strategies</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2025624905581314508?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/defi-feb26.png" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">defi strategies</div><div class="tweet-card-title">feb26—current strategies</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1982757220225093919?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/defi-spreads.png" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">defi strategies</div><div class="tweet-card-title">looking for prediction markets with spreads: risk-free delta neutral</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1993960827033145380?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/defi-FAFO.png" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">defi strategies</div><div class="tweet-card-title">FAFO &amp; crashtest on monad</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1944923463153803569?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/defi-hyperevm.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">defi strategies</div><div class="tweet-card-title">hyperevm strategies</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1980618588747956458?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/defi-oct25.png" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">defi strategies</div><div class="tweet-card-title">oct25—current strategies</div></div></a></div>
+
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <div class="carousel-nav">
+            <button class="carousel-btn prev" type="button">Prev</button>
+            <button class="carousel-btn next" type="button">Next</button>
+          </div>
+          <div class="carousel-counter">1 / 6</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POLYMARKET CHALLENGE -->
+    <div class="tab-panel" data-panel="polymarket">
+      <p class="job-description">being paid to have an opinion. also vibecoded tools for weather prediction markets and american mention markets (Politics and MrBeast)</p>
+
+      <div class="tweet-carousel" data-carousel>
+        <div class="carousel-shell">
+          <div class="carousel-track">
+
+            <!-- 8 slides -->
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1969104888756892092" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/polymarket6.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Polymarket series</div><div class="tweet-card-title">day6: +0,0092% (lmao). build and train my own weather algo so prediction accuracy should improve</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1970096838490415601?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/polymarket7.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Polymarket series</div><div class="tweet-card-title">day7: +23,89%. started to run my mention dataset in python venv with streamlit, works like a charm</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1970505608789991525?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/polymarket8.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Polymarket series</div><div class="tweet-card-title"> day8: +3,61%. american flywheel!</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1967283060946477370?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/polymarket1.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Polymarket series</div><div class="tweet-card-title">day1: +6,64%</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1967957543189463468?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/polymarket2.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Polymarket series</div><div class="tweet-card-title">day2: +13,52%</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1968091069129834811?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/polymarket3.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Polymarket series</div><div class="tweet-card-title">day3: +2,33%</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1968423371089105135?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/polymarket4.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Polymarket series</div><div class="tweet-card-title">day4: -11%. started playing with mention markets</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1968796482170953931?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/polymarket5.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Polymarket series</div><div class="tweet-card-title">day5: -1,34%. perfs are shit but learning is fun!</div></div></a></div>
+
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <div class="carousel-nav">
+            <button class="carousel-btn prev" type="button">Prev</button>
+            <button class="carousel-btn next" type="button">Next</button>
+          </div>
+          <div class="carousel-counter">1 / 8</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ECO -->
+    <div class="tab-panel" data-panel="eco">
+      <p class="job-description">turning blockchain defi into my playground!</p>
+
+      <div class="tweet-carousel" data-carousel>
+        <div class="carousel-shell">
+          <div class="carousel-track">
+
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2050547853815079010?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/neverland-cheatsheet.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">eco cheatsheets</div><div class="tweet-card-title">neverland cheatsheet based on your risk level</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1967185995700617553?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/monad-testnet-cheatsheet.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">eco cheatsheets</div><div class="tweet-card-title">stake &amp; restake</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1972299098301866158?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/monad-neverland-cheatsheet.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">eco cheatsheets</div><div class="tweet-card-title">neverland flywheel</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1993611462275907637?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/monad-fullexpo-cheatsheet.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">eco cheatsheets</div><div class="tweet-card-title">full exposure MON</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1907378644411978124?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/berachain-cheatsheet.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">eco cheatsheets</div><div class="tweet-card-title">berachain cheatsheet</div></div></a></div>
+
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <div class="carousel-nav">
+            <button class="carousel-btn prev" type="button">Prev</button>
+            <button class="carousel-btn next" type="button">Next</button>
+          </div>
+          <div class="carousel-counter">1 / 5</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- YIELD -->
+    <div class="tab-panel" data-panel="yield">
+      <p class="job-description">it’s all about consistency and not chasing too many rabbits (˶˃⤙˂˶)</p>
+
+      <div class="tweet-carousel" data-carousel>
+        <div class="carousel-shell">
+          <div class="carousel-track">
+
+            <!-- 9 slides -->
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2014329201990696962?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/weekly-yield1.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Monad Weekly Yield series</div><div class="tweet-card-title">week 1</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2016718611680055428?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/weekly-yield2.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Monad Weekly Yield series</div><div class="tweet-card-title">week 2</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2019201467018834333?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/weekly-yield3.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Monad Weekly Yield series</div><div class="tweet-card-title">week 3</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2024791911127740739?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/weekly-yield4.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Monad Weekly Yield series</div><div class="tweet-card-title">week 4</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2026964661527286032?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/weekly-yield5.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Monad Weekly Yield series</div><div class="tweet-card-title">week 5</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2029368567913955821?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/weekly-yield6.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Monad Weekly Yield series</div><div class="tweet-card-title">week 6</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2032109074586996949?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/weekly-yield7.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Monad Weekly Yield series</div><div class="tweet-card-title">week 7</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2035030566719168760?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/weekly-yield8.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Monad Weekly Yield series</div><div class="tweet-card-title">week 8</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2037122358176342081?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/weekly-yield9.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Monad Weekly Yield series</div><div class="tweet-card-title">week 9</div></div></a></div>
+
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <div class="carousel-nav">
+            <button class="carousel-btn prev" type="button">Prev</button>
+            <button class="carousel-btn next" type="button">Next</button>
+          </div>
+          <div class="carousel-counter">1 / 9</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+    <div class="job">
+    <div class="job-header">
+      <div class="job-title project-title-row">
+        <button class="project-toggle" type="button" aria-expanded="false" aria-controls="project-content-creator-content" aria-label="Toggle Technical Content Creator projects">
+          <span class="project-toggle-icon" aria-hidden="true">▶</span>
+        </button>
+        <span class="project-title-text">Technical Content Creator — for <span class="project-title-link"> Journal du Coin</span> and <span class="project-title-link"> Neverland</span>
+          covering <span class="project-title-link"> Kuru</span>, <span class="project-title-link"> Fairblock</span>, <span class="project-title-link"> Ventuals</span>, <span class="project-title-link"> Re Protocol</span> and <span class="project-title-link"> Zama</span>
+        </span>
+      </div>
+      <div class="job-meta">Jan 2022 - Present</div>
+    </div>
+
+    <div class="project-toggle-content is-collapsed" id="project-content-creator-content">
+
+      <!-- TABS -->
+    <div class="project-tabs">
+      <button type="button" class="tab-btn is-active" data-tab="nutshell">in a nutshell series</button>
+      <button type="button" class="tab-btn" data-tab="neverland">some neverland works</button>
+      <button type="button" class="tab-btn" data-tab="discovery">discovery threads and tweets</button>
+      <button type="button" class="tab-btn" data-tab="weeklyrecap">weekly recap</button>
+    </div>
+
+        <!-- IN A NUTSHELL -->
+    <div class="tab-panel is-active" data-panel="nutshell">
+      <p class="job-description">demystifying novelties and projects with potential</p>
+
+      <div class="tweet-carousel" data-carousel>
+        <div class="carousel-shell">
+          <div class="carousel-track">
+
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1945020792967774620?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/nutshell-kuru.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">In a Nutshell series</div><div class="tweet-card-title">Kuru: why choose Flip Orders on a CLOB instead of providing concentrated liquidity in an AMM?</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1971895041393315882?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/nutshell-neverland.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">In a Nutshell series</div><div class="tweet-card-title">why choose Neverland instead of providing liquidity in your usual AMMs and ve(3,3)?</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1979609194027172155?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/nutshell-hyperwave.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">In a Nutshell series</div><div class="tweet-card-title">Hyperwave: efficient strategy on hyperevm, upcoming dutch auction and many more...</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1982750565043179634?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/nutshell-re.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">In a Nutshell series</div><div class="tweet-card-title">how do i earn 38,3% APR on my stable stack? just discovered Re last week and acted accordingly</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2039249750130819379?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/nutshell-emode.png" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">In a Nutshell series</div><div class="tweet-card-title">introducing e-mode on Neverland, in very simple terms</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2060619216382824559?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/nutshell-ngv01.png" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">In a Nutshell series</div><div class="tweet-card-title">adopt a Balancer AutoRange Pool as Neverland's Core USDC/DUST Liquidity Venue</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1975205860545577139?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/nutshell-fairblock.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">In a Nutshell series</div><div class="tweet-card-title">Fairblock: what’s the difference with monero or houdiniswap? and why institutionals shouldn’t just stick with the usual system?</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1978538909131739285?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/nutshell-ventuals.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">In a Nutshell series</div><div class="tweet-card-title">Ventuals, an easy breakdown!</div></div></a></div>
+
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <div class="carousel-nav">
+            <button class="carousel-btn prev" type="button">Prev</button>
+            <button class="carousel-btn next" type="button">Next</button>
+          </div>
+          <div class="carousel-counter">1 / 8</div>
+        </div>
+      </div>
+    </div>
+
+      <!-- SOME NEVERLAND WORKS -->
+    <div class="tab-panel" data-panel="neverland">
+      <p class="job-description">covering concepts and freshly released features in a fun and creative way</p>
+
+      <div class="tweet-carousel" data-carousel>
+        <div class="carousel-shell">
+          <div class="carousel-track">
+
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2030218949275570283?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/neverland-11ways.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Neverland works</div><div class="tweet-card-title">article: 11 different ways to generate earnings on Neverland</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2030970381620969916?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/neverland-perfs-feature.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Neverland works</div><div class="tweet-card-title">you can now easily acknowledge your portfolio perfs in effective yield (%) and ROI rate ($)</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1987545982276661572?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/neverland-toolkit.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Neverland works</div><div class="tweet-card-title">vibecoding—my monad native day1 toolkit</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2049113898662727733?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/neverland-pearls.png" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Neverland works</div><div class="tweet-card-title">about pearls, tides &amp; lottery</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1986779314830852434?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/neverland-LST.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Neverland works</div><div class="tweet-card-title">multiple LSTs and risk mitigation</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2014363210804346992?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/neverland-beefy.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Neverland works</div><div class="tweet-card-title">Beefy adds 7 single-assets Neverland vaults</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2014366991486967843?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/neverland-marketplace.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Neverland works</div><div class="tweet-card-title">decomposing a veDUST NFT buy as a market bet</div></div></a></div>
+
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1987488844439265760?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/neverland-gooddebt.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Neverland works</div><div class="tweet-card-title">wait you guys are getting paid to borrow money?</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2012486188599505207?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/neverland-update.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Neverland works</div><div class="tweet-card-title">article: neverland weekly update</div></div></a></div>
+
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <div class="carousel-nav">
+            <button class="carousel-btn prev" type="button">Prev</button>
+            <button class="carousel-btn next" type="button">Next</button>
+          </div>
+          <div class="carousel-counter">1 / 9</div>
+        </div>
+      </div>
+    </div>
+
+      <!-- DISCOVERY THREADS AND TWEETS -->
+    <div class="tab-panel" data-panel="discovery">
+      <p class="job-description">sharing some projects in a nitty-gritty way</p>
+
+      <div class="tweet-carousel" data-carousel>
+        <div class="carousel-shell">
+          <div class="carousel-track">
+
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1977084137682137149?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/discovery-fairblock.png" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Discovery threads&amp;tweets</div><div class="tweet-card-title">Fairblock: how Fairates is bringing confidential fixed-rate lending onchain?</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1980891419641540755?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/discovery-re.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Discovery threads&amp;tweets</div><div class="tweet-card-title">Re: reinsurance for the newbies</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1981991486322335993?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/discovery-fairblock2.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Discovery threads&amp;tweets</div><div class="tweet-card-title">a16z report and fairblock's confidential transfers</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1986819047003222246?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/discovery-raycash.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Discovery threads&amp;tweets</div><div class="tweet-card-title">Raycash: self-custody and privacy bank without renouncing compliance</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1990796506270445854?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/discovery-zama.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Discovery threads&amp;tweets</div><div class="tweet-card-title">surf on httpZ. surf on zama</div></div></a></div>
+
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <div class="carousel-nav">
+            <button class="carousel-btn prev" type="button">Prev</button>
+            <button class="carousel-btn next" type="button">Next</button>
+          </div>
+          <div class="carousel-counter">1 / 5</div>
+        </div>
+       </div>
+
+    </div> <!-- fin .tab-panel discovery -->
+
+    <!-- WEEKLY RECAP FORMAT -->
+    <div class="tab-panel" data-panel="weeklyrecap">
+      <p class="job-description">my weekly info format developed for neverland</p>
+
+      <div class="tweet-carousel" data-carousel>
+        <div class="carousel-shell">
+          <div class="carousel-track">
+
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2070751245556396421?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/weeklyrecap-june1.jpg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Weekly recap format</div><div class="tweet-card-title">Pendle, DefiLLama: 9 key updates that defined the penultimate week of June</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2072615338328621260?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/weeklyrecap-june2.jpg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Weekly recap format</div><div class="tweet-card-title">PT-AUSD, Liquidity Recovery &amp; Lending v1.1.0: 9 key updates from the last Week of June</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2075159174921834936?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/weeklyrecap-july1.jpg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Weekly recap format</div><div class="tweet-card-title">BTC-Related Markets are back, Boosted APY &amp; a New Merkl campaign: 10 highlights that defined the 1st week of July</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2077766305198067748?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/weeklyrecap-july2.jpg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Weekly recap format</div><div class="tweet-card-title">1M burn reached, the 1st ESCV, &amp; Governance heats up: 9 key updates from the 2nd week of July</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/2082742185334853694?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/weeklyrecap-july3.png" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Weekly recap format</div><div class="tweet-card-title">7th tide concluded, Neverland's 1st RWA &amp; up to 5× on your stable LP: 7 updates that defined mid-July</div></div></a></div>
+
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <div class="carousel-nav">
+            <button class="carousel-btn prev" type="button">Prev</button>
+            <button class="carousel-btn next" type="button">Next</button>
+          </div>
+          <div class="carousel-counter">1 / 5</div>
+        </div>
+      </div>
+    </div> <!-- fin .tab-panel weeklyrecap -->
+
+  </div>   <!-- fin .project-toggle-content -->
+</div> <!-- fin .job Technical Content Creator -->
+
+
+  <!-- GRAPHIC DESIGN & EVENT MANAGER -->
+
+  <div class="job">
+    <div class="job-header">
+      <div class="job-title project-title-row">
+        <button class="project-toggle" type="button" aria-expanded="false" aria-controls="project-design-content" aria-label="Toggle Graphic Designer projects">
+          <span class="project-toggle-icon" aria-hidden="true">▶</span>
+        </button>
+        <span class="project-title-text">Graphic Designer &amp; Event Curator — covering <span class="project-title-link"> Monad</span> and <span class="project-title-link"> Ritual</span></span>
+      </div>
+      <div class="job-meta">Apr 2025 - Oct 2025</div>
+    </div>
+
+    <div class="project-toggle-content is-collapsed" id="project-design-content">
+      <!-- TABS -->
+      <div class="project-tabs">
+        <button type="button" class="tab-btn is-active" data-tab="monadventure">monadventure hunt</button>
+        <button type="button" class="tab-btn" data-tab="prompts">21 days of prompts series</button>
+      </div>
+
+      <!-- MONADVENTURE HUNT -->
+      <div class="tab-panel is-active" data-panel="monadventure">
+        <p class="job-description">four months of weekly curated DJ / gaming events bringing together cultural references, crypto art and music in Monad Discord.</p>
+
+        <div class="project-carousel" data-carousel>
+          <div class="carousel-shell">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="posters/papayou.png" alt="Monad event visual 1" loading="lazy" decoding="async"></div>
+              <div class="carousel-slide"><img src="posters/laquita.png" alt="Monad event visual 2" loading="lazy" decoding="async"></div>
+              <div class="carousel-slide"><img src="posters/cookie.png" alt="Monad event visual 3" loading="lazy" decoding="async"></div>
+              <div class="carousel-slide"><img src="posters/frico.png" alt="Monad event visual 4" loading="lazy" decoding="async"></div>
+              <div class="carousel-slide"><img src="posters/midodo.png" alt="Monad event visual 5" loading="lazy" decoding="async"></div>
+              <div class="carousel-slide"><img src="posters/ghooolyache.png" alt="Monad event visual 6" loading="lazy" decoding="async"></div>
+              <div class="carousel-slide"><img src="posters/lambe.png" alt="Monad event visual 7" loading="lazy" decoding="async"></div>
+              <div class="carousel-slide"><img src="posters/flowmyc-baeye.jpg" alt="Monad event visual 8" loading="lazy" decoding="async"></div>
+            </div>
+          </div>
+
+          <div class="carousel-controls">
+            <div class="carousel-nav">
+              <button class="carousel-btn prev" type="button">Prev</button>
+              <button class="carousel-btn next" type="button">Next</button>
+            </div>
+            <div class="carousel-counter">1 / 8</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 21 DAYS OF PROMPTS -->
+    <div class="tab-panel" data-panel="prompts">
+      <p class="job-description">homemade pictochat style + fun illustrations to cover their technology!</p>
+
+      <div class="tweet-carousel" data-carousel>
+        <div class="carousel-shell">
+          <div class="carousel-track">
+
+            <div class="tweet-slide">
+              <a href="https://x.com/pince_croco/status/1973283108851163583?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
+                <img src="cover/ritual-day1.jpeg" alt="21 days of Prompts - day 1" loading="lazy" decoding="async">
+                <div class="tweet-card-body">
+                  <div class="tweet-card-label">21 days of Prompts series</div>
+                  <div class="tweet-card-title">does Ritual let developers connect any API to the blockchain without an oracle?</div>
+                </div>
+              </a>
+            </div>
+
+            <div class="tweet-slide">
+              <a href="https://x.com/pince_croco/status/1973736941142307018?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
+                <img src="cover/ritual-day2.jpeg" alt="21 days of Prompts - day 2" loading="lazy" decoding="async">
+                <div class="tweet-card-body">
+                  <div class="tweet-card-label">21 days of Prompts series</div>
+                  <div class="tweet-card-title">explain Ritual to me like i’m 10</div>
+                </div>
+              </a>
+            </div>
+
+            <div class="tweet-slide">
+              <a href="https://x.com/pince_croco/status/1974047076058345640?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
+                <img src="cover/ritual-day3.jpeg" alt="21 days of Prompts - day 3" loading="lazy" decoding="async">
+                <div class="tweet-card-body">
+                  <div class="tweet-card-label">21 days of Prompts series</div>
+                  <div class="tweet-card-title">if money could “think for itself”, what’s the funniest thing it would spend itself on first?</div>
+                </div>
+              </a>
+            </div>
+
+            <div class="tweet-slide">
+              <a href="https://x.com/pince_croco/status/1974475769092120602?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
+                <img src="cover/ritual-day4.jpeg" alt="21 days of Prompts - day 4" loading="lazy" decoding="async">
+                <div class="tweet-card-body">
+                  <div class="tweet-card-label">21 days of Prompts series</div>
+                  <div class="tweet-card-title">the most useful app you could imagine being built on Ritual and why?</div>
+                </div>
+              </a>
+            </div>
+
+            <div class="tweet-slide">
+              <a href="https://x.com/pince_croco/status/1974816675141763246?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
+                <img src="cover/ritual-day5.jpeg" alt="21 days of Prompts - day 5" loading="lazy" decoding="async">
+                <div class="tweet-card-body">
+                  <div class="tweet-card-label">21 days of Prompts series</div>
+                  <div class="tweet-card-title">you start with 1k invisible Ritual pts. how do you spend them to gain the biggest advantage?</div>
+                </div>
+              </a>
+            </div>
+
+            <div class="tweet-slide">
+              <a href="https://x.com/pince_croco/status/1975117063590142430?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
+                <img src="cover/ritual-day6.jpeg" alt="21 days of Prompts - day 6" loading="lazy" decoding="async">
+                <div class="tweet-card-body">
+                  <div class="tweet-card-label">21 days of Prompts series</div>
+                  <div class="tweet-card-title">in 5 years, what’s one everyday thing you think Ritual will secretly be powering behind the scenes?</div>
+                </div>
+              </a>
+            </div>
+
+            <div class="tweet-slide">
+              <a href="https://x.com/pince_croco/status/1975955707901124791?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
+                <img src="cover/ritual-day7.jpeg" alt="21 days of Prompts - day 7" loading="lazy" decoding="async">
+                <div class="tweet-card-body">
+                  <div class="tweet-card-label">21 days of Prompts series</div>
+                  <div class="tweet-card-title">think of your favorite everyday app. how could connecting its API to Ritual make it smarter or more useful?</div>
+                </div>
+              </a>
+            </div>
+
+            <div class="tweet-slide">
+              <a href="https://x.com/pince_croco/status/1976604587172966792?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
+                <img src="cover/ritual-day8.jpeg" alt="21 days of Prompts - day 8" loading="lazy" decoding="async">
+                <div class="tweet-card-body">
+                  <div class="tweet-card-label">21 days of Prompts series</div>
+                  <div class="tweet-card-title">if you could give your wallet access to any API in the world, which one would make it most powerful and why?</div>
+                </div>
+              </a>
+            </div>
+
+            <div class="tweet-slide">
+              <a href="https://x.com/pince_croco/status/1976981306635698689?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
+                <img src="cover/ritual-day9.jpeg" alt="21 days of Prompts - day 9" loading="lazy" decoding="async">
+                <div class="tweet-card-body">
+                  <div class="tweet-card-label">21 days of Prompts series</div>
+                  <div class="tweet-card-title">what’s the first “job” you think a Ritual-powered AI agent will steal from humans?</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <div class="carousel-nav">
+            <button class="carousel-btn prev" type="button">Prev</button>
+            <button class="carousel-btn next" type="button">Next</button>
+          </div>
+          <div class="carousel-counter">1 / 9</div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+
+  <!-- COMMUNITY EVENTS AND INITIATIVES -->
+
+   <div class="job">
+    <div class="job-header">
+      <div class="job-title project-title-row">
+        <button class="project-toggle" type="button" aria-expanded="false" aria-controls="project-community-content" aria-label="Toggle Community and Event Manager projects">
+          <span class="project-toggle-icon" aria-hidden="true">▶</span>
+        </button>
+        <span class="project-title-text">Community/Event Manager &amp; Initiatives — for <span class="project-title-link"> Blench</span>
+          covering <span class="project-title-link"> Monad</span>, <span class="project-title-link"> Ritual</span> and <span class="project-title-link"> Fairblock</span>
+        </span>
+      </div>
+      <div class="job-meta">Jul 2025 - Nov 2025</div>
+    </div>
+
+     <div class="project-toggle-content is-collapsed" id="project-community-content">
+
+      <!-- TABS -->
+    <div class="project-tabs">
+      <button type="button" class="tab-btn is-active" data-tab="online">online</button>
+      <button type="button" class="tab-btn" data-tab="irl">irl</button>
+      <button type="button" class="tab-btn" data-tab="blench">some blench works</button>
+    </div>
+
+        <!-- ONLINE -->
+    <div class="tab-panel is-active" data-panel="online">
+      <p class="job-description">community initiatives ranging from graphic design &amp; event hosting to vibecoding</p>
+
+      <div class="tweet-carousel" data-carousel>
+        <div class="carousel-shell">
+          <div class="carousel-track">
+
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1981986263877169326?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/online-fairblock.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">online initiatives</div><div class="tweet-card-title">providing 1/1 personalized fairblock community card with a tally form</div></div></a></div>
+            <div class="tweet-slide"><a href="https://nafyn.github.io/ritual-pince/" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/online-ritual2.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">online initiatives</div><div class="tweet-card-title">vibecoded tool to highlight my community contributions</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1983009806777757892?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/online-ritual.png" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">online initiatives</div><div class="tweet-card-title">hosting weekly jigsaw tournaments bringing together the Ritual community in DC!</div></div></a></div>
+
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <div class="carousel-nav">
+            <button class="carousel-btn prev" type="button">Prev</button>
+            <button class="carousel-btn next" type="button">Next</button>
+          </div>
+          <div class="carousel-counter">1 / 3</div>
+        </div>
+      </div>
+    </div>
+               <!-- IRL -->
+    <div class="tab-panel" data-panel="irl">
+      <p class="job-description">some IRL community initiatives: SEA meet-up attendance, homemade personalized gifts and side-event hosting</p>
+
+      <div class="tweet-carousel" data-carousel>
+        <div class="carousel-shell">
+          <div class="carousel-track">
+
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1983009806777757892?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/irl-sgmy2.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">irl initiatives</div><div class="tweet-card-title">Monad SGMY meet-up: 50 handmade custom bracelets for each nad coming!</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1950862558753099784?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/irl-vn1.png" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">irl initiatives</div><div class="tweet-card-title">Monad VN meet-up: homemade gifts, some graphic design and side-event organization in Hanoï</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1945375799131168829?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/irl-sgmy1.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">irl initiatives</div><div class="tweet-card-title">Monad SGMY meet-up: hosted impromptu events (9) to share my personalized gift making process</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1947614511785251062?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/irl-sgmy3.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">irl initiatives</div><div class="tweet-card-title">Monad SGMY POAP lol</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1953363234507112594?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/irl-vn2.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">irl initiatives</div><div class="tweet-card-title">Monad VN meet-up POAP lol</div></div></a></div>
+
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <div class="carousel-nav">
+            <button class="carousel-btn prev" type="button">Prev</button>
+            <button class="carousel-btn next" type="button">Next</button>
+          </div>
+          <div class="carousel-counter">1 / 5</div>
+        </div>
+      </div>
+    </div>
+
+       <!-- BLENCH -->
+    <div class="tab-panel" data-panel="blench">
+      <p class="job-description">design posters, create events: push and advertise them to grow community liveliness</p>
+
+      <div class="tweet-carousel" data-carousel>
+        <div class="carousel-shell">
+          <div class="carousel-track">
+
+
+            <div class="tweet-slide"><div class="tweet-card"><img src="cover/blench4.png" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">watchparty</div><div class="tweet-card-title">sept 18th—Your Name</div></div></div></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1967278251086373057?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/blench8.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">games night</div><div class="tweet-card-title">host bingo event</div></div></a></div>
+            <div class="tweet-slide"><div class="tweet-card"><img src="cover/blench9.png" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Blench Time with...</div><div class="tweet-card-title">Karna! homemade concept where i supervise a community self-hosted event</div></div></div></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1955326463600890283?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/blench1.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">watchparty</div><div class="tweet-card-title">aug 13th—Tougen Anki</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1957135250716237903?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/blench2.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">watchparty</div><div class="tweet-card-title">aug 20th—Takopi's Original Sin</div></div></a></div>
+            <div class="tweet-slide"><div class="tweet-card"><img src="cover/blench3.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">watchparty</div><div class="tweet-card-title">sept 11th—Arcane</div></div></div></div>
+            <div class="tweet-slide"><div class="tweet-card"><img src="cover/blench5.png" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">watchparty</div><div class="tweet-card-title">sept 25th—A Silent Voice</div></div></div></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1962755343597084972?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/blench6.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">games night</div><div class="tweet-card-title">host jigsaw tournaments</div></div></a></div>
+            <div class="tweet-slide"><a href="https://x.com/pince_croco/status/1965356478359027736?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card"><img src="cover/blench7.jpeg" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">games night</div><div class="tweet-card-title">host jigsaw and lolbeans tournaments</div></div></a></div>
+            <div class="tweet-slide"><div class="tweet-card"><img src="cover/blench10.png" alt="" loading="lazy" decoding="async"><div class="tweet-card-body"><div class="tweet-card-label">Blench Time with...</div><div class="tweet-card-title"> Nifty! homemade concept where i supervise a community self-hosted event</div></div></div></div>
+
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <div class="carousel-nav">
+            <button class="carousel-btn prev" type="button">Prev</button>
+            <button class="carousel-btn next" type="button">Next</button>
+          </div>
+          <div class="carousel-counter">1 / 10</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</section>
+
+  <!-- ZODIAL PRODUCT FEEDBACK — COMPACT FEATURE -->
+  <section class="zodial-mini-section">
+    <h2>MOST RECENT WORK</h2>
+    <div class="zodial-mini-row">
+      <div class="zodial-mini-visual">
+        <a class="zodial-mini-preview" href="reports/zodial-product-feedback.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open the full Zodial Product Feedback PDF">
+          <img src="cover/zodial-feedback-cover.png" alt="Cover of the Zodial Product Feedback report" loading="lazy" decoding="async">
+        </a>
+        <div class="zodial-click-note" aria-hidden="true">
+          <svg viewBox="0 0 46 23" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 21C7 12 17 7 29 8C35 8.5 40 5.5 44 2"/>
+            <path d="M36.5 2.5C39.5 2 42 2 44 2C43.5 5 42.5 7.5 40.5 10"/>
+          </svg>
+          <span>click here</span>
+        </div>
+      </div>
+      <p class="zodial-mini-copy"><strong>Superteam bounty: UX/UI &amp; Product Feedback for Zodial</strong> — a product and UX/UI audit covering market positioning, friction analysis and redesigned market-page recommendations.</p>
+    </div>
+    <a class="zodial-mini-social" href="https://x.com/pince_croco/status/2081714996027990051?s=20" target="_blank" rel="noopener noreferrer" aria-label="View this work on X">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
+    </a>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section>
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Community Growth Icon — <a href="https://neverland.money/" target="_blank" rel="noopener noreferrer">Neverland</a> (lending protocol)</div>
+        <div class="job-meta">Nov 2025 – Present · Remote</div>
+      </div>
+      <p class="job-description">your friendly micro-niche explainer. but with memes, doodles in a fun tone!</p>
+      <ul>
+        <li>Break down DeFi concepts to a wider community and broad audience through writing, visuals and charts</li>
+        <li>Act as an official representative, be the link which helps to educate seasoned users and DeFi newbies</li>
+        <li>Provide growth strategies and suggest overall improvements. Also built <a class="pink-highlight-link" href="https://x.com/Neverland_Money/status/1987542719040811439?s=20" target="_blank" rel="noopener noreferrer">a fun tool</a> to highlight Monad Eco on their day 1 mainnet start </li>
+        <li>Cover concepts and freshly released features in a fun and creative way</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Community Team — <a href="https://x.com/blench" target="_blank" rel="noopener noreferrer">Blench</a> (NFT)</div>
+        <div class="job-meta">Aug 2025 – Nov 2025 · Remote</div>
+      </div>
+      <p class="job-description">acting as a community member: propose initiatives, have fun, attend. just a bridge, with more duties and responsibilities :p</p>
+      <ul>
+        <li>Host events such as an anime watchparty, gaming nights and pack openings twice a week</li>
+        <li>Curate our community liveliness, maintain the project's appeal and make both grow</li>
+        <li>Design posters, push and advertise events on our channels (twitter and DC)</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Blockchain Operations Analyst — <a href="https://www.coinbase.com/about" target="_blank" rel="noopener noreferrer">Coinbase</a></div>
+        <div class="job-meta">May 2023 – Oct 2023 · Dublin</div>
+      </div>
+      <p class="job-description">white-glove customer service for institutionals</p>
+      <ul>
+        <li>Handle sensitive transactions and ensure asset safety through data-based decisions</li>
+        <li>Bug resolution, process optimization, technical support and cross-team collaboration</li>
+        <li>Premium customer service for financial institutions and fraud prevention</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Chief of Staff — <a href="https://x.com/kolatcrypto" target="_blank" rel="noopener noreferrer">Kolat</a></div>
+        <div class="job-meta">Jun 2022 – Sept 2022 · Paris</div>
+      </div>
+      <p class="job-description">crypto-based lending that facilitates fiat loans collateralized by crypto for crypto companies &amp; DeFi  projects</p>
+      <ul>
+        <li>Graphic overhaul, development of legal documents (KYC), creation of an internal Notion for recruitment</li>
+        <li>Creation of automated management files for collateral and liquidation tests</li>
+        <li>Fundamental analysis of protocols, collateral asset pricing, and establishment of a risk index</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Assistant Project Manager — <a href="https://exon-advisory.webflow.io/" target="_blank" rel="noopener noreferrer">Exon Advisory</a> (fintech consulting)</div>
+        <div class="job-meta">Apr 2022 – Jun 2022 · Paris</div>
+      </div>
+      <ul>
+        <li>Database design, strategic partnership management, and grant application drafting</li>
+        <li>Company valuation, financial modeling, and business plans</li>
+        <li>Project management, structure creation, and Web3 consulting</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Copywriter — <a href="https://journalducoin.com/" target="_blank" rel="noopener noreferrer">Journal du Coin</a></div>
+        <div class="job-meta">Jan 2022 – Jan 2023 · Remote</div>
+      </div>
+      <p class="job-description">first crypto media in France</p>
+      <ul>
+        <li>Articles dedicated to the democratization of crypto-assets, DeFi, and their technologies</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- PRESS & SPEAKING -->
+  <section>
+    <h2>IRL events &amp; Speaking</h2>
+    <div class="press-links" style="margin-bottom: 14px;">
+      <span style="font-size:0.9rem; color:var(--black); margin-right:20px;">2022—Avalanche Summit, Barcelona</span>
+      <span style="font-size:0.9rem; color:var(--black); margin-right:20px;">2022—EthCC[5], Paris</span>
+      <a href="https://x.com/pince_croco/status/1947614511785251062?s=20" target="_blank" rel="noopener noreferrer">2025—Monad SGMY Meet-up, Kuala Lumpur</a>
+      <a href="https://x.com/pince_croco/status/1953363234507112594?s=20" target="_blank" rel="noopener noreferrer">2025—Monad VN Meet-up, Hanoï</a>
+    </div>
+
+    <div class="tags">
+      <span class="tag">spoke at EthCC[5]</span>
+      <span class="tag">hosted an IRL event in Hanoï</span>
+    </div>
+    </section>
+
+  <!-- SKILLS -->
+  <section>
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <span>DeFi strategy &amp; yield optimization</span>
+      <span>Technical content creation &amp; educational writing</span>
+      <span>Growth marketing</span>
+      <span>Event curation</span>
+      <span>Community management</span>
+      <span>Graphic design &amp; visual communication</span>
+      <span>Financial analysis</span>
+      <span>Project &amp; Ops management</span>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section>
+    <h2>Education</h2>
+    <div class="edu-item">
+      <strong>BS Business with Computer Science</strong>
+      <div class="edu-meta">University of Panthéon-Sorbonne · Graduated 2023</div>
+    </div>
+    <div class="edu-item">
+      <strong>BS Economy, Finance and Management</strong>
+      <div class="edu-meta">IAE of Lille · Graduated 2022</div>
+    </div>
+    <div class="edu-item">
+      <strong>BS Architecture</strong>
+      <div class="edu-meta">National Superior School of Architecture - Paris Val de Seine · Graduated 2021</div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Resume &amp; Portfolio — Pince · Last updated August 2026</p>
+    <div class="footer-wink" aria-hidden="true">
+      <svg viewBox="0 0 88 30" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="2" width="82" height="26" fill="#f3e1eb" fill-opacity="0.75"/>
+        <text class="footer-wink-open" x="44" y="20" text-anchor="middle" fill="currentColor" font-family="'Times New Roman', Times, serif" font-size="14">૮ ྀི• . • ྀིა</text>
+        <text class="footer-wink-closed" x="44" y="20" text-anchor="middle" fill="currentColor" font-family="'Times New Roman', Times, serif" font-size="14">૮ ྀིᴗ͈ . • ྀིა</text>
+      </svg>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Image preview">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image">×</button>
+    <img id="lightboxImage" src="" alt="">
+  </div>
+  </div>
+
+  <script>
+  // Per-project toggle
+  document.querySelectorAll(".project-toggle").forEach((button) => {
+    const content = button.closest(".job").querySelector(".project-toggle-content");
+    const icon = button.querySelector(".project-toggle-icon");
+    const titleRow = button.closest(".project-title-row");
+
+    if (!content || !icon) return;
+
+    function toggleProject() {
+      const expanded = button.getAttribute("aria-expanded") === "true";
+      button.setAttribute("aria-expanded", String(!expanded));
+      content.classList.toggle("is-collapsed", expanded);
+      icon.textContent = expanded ? "▶" : "▼";
+    }
+
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      toggleProject();
+    });
+
+    titleRow?.addEventListener("click", (event) => {
+      if (event.target.closest("a, button")) return;
+      toggleProject();
+    });
+  });
+
+  // Compact carousel
+  document.querySelectorAll("[data-carousel]:not([data-auto-carousel])").forEach((carousel) => {
+    const scroller = carousel.querySelector(".carousel-track");
+    const slides = carousel.querySelectorAll(".carousel-slide, .tweet-slide");
+    const prevBtn = carousel.querySelector(".prev");
+    const nextBtn = carousel.querySelector(".next");
+    const counter = carousel.querySelector(".carousel-counter");
+
+    if (!scroller || !slides.length || !prevBtn || !nextBtn || !counter) return;
+
+    carousel.setAttribute("role", "region");
+    carousel.setAttribute("aria-label", "Content carousel");
+    prevBtn.setAttribute("aria-label", "Previous item");
+    nextBtn.setAttribute("aria-label", "Next item");
+    counter.setAttribute("aria-live", "polite");
+
+    slides.forEach((slide, index) => {
+      slide.setAttribute("role", "group");
+      slide.setAttribute("aria-label", `${index + 1} of ${slides.length}`);
+    });
+
+    let currentIndex = 0;
+    let scrollFrame;
+
+    function getSlidePosition(index) {
+      return slides[index].offsetLeft - slides[0].offsetLeft;
+    }
+
+    function updateCounter() {
+      if (!slides.length) return;
+      counter.textContent = `${currentIndex + 1} / ${slides.length}`;
+    }
+
+    function scrollToSlide(index, behavior = "smooth") {
+      if (!slides.length) return;
+      currentIndex = (index + slides.length) % slides.length;
+      scroller.scrollTo({
+        left: getSlidePosition(currentIndex),
+        behavior
+      });
+      updateCounter();
+    }
+
+    function syncIndexWithScroll() {
+      if (!slides.length) return;
+
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+
+      slides.forEach((slide, index) => {
+        const distance = Math.abs(getSlidePosition(index) - scroller.scrollLeft);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      currentIndex = closestIndex;
+      updateCounter();
+    }
+
+    prevBtn.addEventListener("click", () => {
+      scrollToSlide(currentIndex - 1);
+    });
+
+    nextBtn.addEventListener("click", () => {
+      scrollToSlide(currentIndex + 1);
+    });
+
+    scroller.addEventListener("scroll", () => {
+      cancelAnimationFrame(scrollFrame);
+      scrollFrame = requestAnimationFrame(syncIndexWithScroll);
+    }, { passive: true });
+
+    window.addEventListener("resize", () => {
+      scrollToSlide(currentIndex, "auto");
+    });
+
+    updateCounter();
+  });
+
+  // Slow, seamless auto-scroll for the standalone Monadventure carousel
+  document.querySelectorAll("[data-auto-carousel]").forEach((carousel) => {
+    const scroller = carousel.querySelector(".carousel-track");
+    const originalSlides = scroller ? Array.from(scroller.children) : [];
+
+    if (!scroller || !originalSlides.length) return;
+
+    carousel.setAttribute("role", "region");
+    carousel.setAttribute("aria-label", "Quick overview poster carousel");
+
+    originalSlides.forEach((slide, index) => {
+      slide.setAttribute("role", "group");
+      slide.setAttribute("aria-label", `${index + 1} of ${originalSlides.length}`);
+
+      const clone = slide.cloneNode(true);
+      clone.classList.add("is-loop-clone");
+      clone.setAttribute("aria-hidden", "true");
+      scroller.appendChild(clone);
+    });
+
+    const firstClone = scroller.querySelector(".is-loop-clone");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const pauseReasons = new Set();
+    const pixelsPerSecond = 26;
+    let loopWidth = 0;
+    let scrollPosition = scroller.scrollLeft;
+    let lastFrame = null;
+    let interactionTimer;
+
+    function measureLoop() {
+      loopWidth = firstClone.offsetLeft - originalSlides[0].offsetLeft;
+      if (loopWidth > 0 && scrollPosition >= loopWidth) {
+        scrollPosition %= loopWidth;
+        scroller.scrollLeft = scrollPosition;
+      }
+    }
+
+    function animate(timestamp) {
+      if (lastFrame === null) lastFrame = timestamp;
+      const elapsed = Math.min(timestamp - lastFrame, 64);
+      lastFrame = timestamp;
+
+      if (!reducedMotion.matches && !pauseReasons.size && loopWidth > 0) {
+        scrollPosition += pixelsPerSecond * elapsed / 1000;
+        if (scrollPosition >= loopWidth) {
+          scrollPosition -= loopWidth;
+        }
+        scroller.scrollLeft = scrollPosition;
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    function pause(reason) {
+      pauseReasons.add(reason);
+    }
+
+    function resume(reason) {
+      pauseReasons.delete(reason);
+    }
+
+    carousel.addEventListener("mouseenter", () => pause("hover"));
+    carousel.addEventListener("mouseleave", () => resume("hover"));
+    carousel.addEventListener("focusin", () => pause("focus"));
+    carousel.addEventListener("focusout", () => resume("focus"));
+    carousel.addEventListener("lightboxclosed", () => {
+      clearTimeout(interactionTimer);
+      scrollPosition = scroller.scrollLeft;
+      resume("focus");
+      resume("interaction");
+    });
+    scroller.addEventListener("pointerdown", () => {
+      clearTimeout(interactionTimer);
+      pause("interaction");
+    });
+    window.addEventListener("pointerup", () => {
+      clearTimeout(interactionTimer);
+      scrollPosition = scroller.scrollLeft;
+      interactionTimer = setTimeout(() => resume("interaction"), 1600);
+    });
+    window.addEventListener("resize", measureLoop);
+
+    if ("ResizeObserver" in window) {
+      const resizeObserver = new ResizeObserver(measureLoop);
+      resizeObserver.observe(scroller);
+    }
+
+    if ("IntersectionObserver" in window) {
+      pause("visibility");
+      const visibilityObserver = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) resume("visibility");
+        else pause("visibility");
+      }, { threshold: 0.05 });
+      visibilityObserver.observe(carousel);
+    }
+
+    originalSlides.forEach((slide) => {
+      const image = slide.querySelector("img");
+      if (image && !image.complete) image.addEventListener("load", measureLoop, { once: true });
+    });
+
+    measureLoop();
+    requestAnimationFrame(animate);
+  });
+
+  // Lightbox
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightboxImage");
+  const lightboxClose = document.getElementById("lightboxClose");
+  let lightboxTrigger = null;
+
+  document.querySelectorAll(".carousel-slide img").forEach((img) => {
+    const isLoopClone = img.closest(".is-loop-clone");
+
+    if (!isLoopClone) {
+      img.setAttribute("role", "button");
+      img.setAttribute("tabindex", "0");
+      img.setAttribute("aria-label", `Open ${img.alt || "image"}`);
+    }
+
+    function openLightbox() {
+      lightboxTrigger = img;
+      lightboxImage.src = img.src;
+      lightboxImage.alt = img.alt;
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+      lightboxClose.focus({ preventScroll: true });
+    }
+
+    img.addEventListener("click", openLightbox);
+    if (!isLoopClone) {
+      img.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openLightbox();
+        }
+      });
+    }
+  });
+
+  function closeLightbox() {
+    const triggerCarousel = lightboxTrigger?.closest("[data-auto-carousel]");
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+    lightboxImage.src = "";
+    lightboxImage.alt = "";
+    lightboxTrigger?.focus({ preventScroll: true });
+    triggerCarousel?.dispatchEvent(new Event("lightboxclosed"));
+    lightboxTrigger = null;
+  }
+
+  lightboxClose.addEventListener("click", closeLightbox);
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lightbox.classList.contains("open")) {
+      closeLightbox();
+    }
+  });
+
+  document.querySelectorAll(".project-tabs").forEach((tabsContainer, groupIndex) => {
+    const buttons = tabsContainer.querySelectorAll(".tab-btn");
+    const job = tabsContainer.closest(".job");
+    const panels = job.querySelectorAll(".tab-panel");
+
+    tabsContainer.setAttribute("role", "tablist");
+
+    function activateTab(activeButton) {
+      const target = activeButton.dataset.tab;
+
+      buttons.forEach((button) => {
+        const active = button === activeButton;
+        button.classList.toggle("is-active", active);
+        button.setAttribute("aria-selected", String(active));
+        button.tabIndex = active ? 0 : -1;
+      });
+
+      panels.forEach((panel) => {
+        panel.classList.toggle("is-active", panel.dataset.panel === target);
+      });
+    }
+
+    buttons.forEach((button, buttonIndex) => {
+      const targetPanel = job.querySelector(`[data-panel="${button.dataset.tab}"]`);
+      const tabId = `project-tab-${groupIndex}-${button.dataset.tab}`;
+      const panelId = `project-panel-${groupIndex}-${button.dataset.tab}`;
+      const active = button.classList.contains("is-active");
+
+      button.id = tabId;
+      button.setAttribute("role", "tab");
+      button.setAttribute("aria-controls", panelId);
+      button.setAttribute("aria-selected", String(active));
+      button.tabIndex = active ? 0 : -1;
+
+      if (targetPanel) {
+        targetPanel.id = panelId;
+        targetPanel.setAttribute("role", "tabpanel");
+        targetPanel.setAttribute("aria-labelledby", tabId);
+      }
+
+      button.addEventListener("click", () => activateTab(button));
+
+      button.addEventListener("keydown", (event) => {
+        let nextIndex = null;
+
+        if (event.key === "ArrowRight") nextIndex = (buttonIndex + 1) % buttons.length;
+        if (event.key === "ArrowLeft") nextIndex = (buttonIndex - 1 + buttons.length) % buttons.length;
+        if (event.key === "Home") nextIndex = 0;
+        if (event.key === "End") nextIndex = buttons.length - 1;
+
+        if (nextIndex === null) return;
+        event.preventDefault();
+        buttons[nextIndex].focus();
+        activateTab(buttons[nextIndex]);
+      });
+    });
+  });
+
+  const footerWink = document.querySelector(".footer-wink");
+
+  if (footerWink) {
+    let reachedPageEnd = false;
+
+    function updateFooterWink() {
+      const pageEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
+
+      if (pageEnd !== reachedPageEnd) {
+        footerWink.classList.toggle("is-winking", pageEnd);
+        reachedPageEnd = pageEnd;
+      }
+    }
+
+    window.addEventListener("scroll", updateFooterWink, { passive: true });
+    window.addEventListener("resize", updateFooterWink);
+    updateFooterWink();
+  }
+</script>
+
+</body>
+</html>
